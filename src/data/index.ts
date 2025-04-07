@@ -1,15 +1,16 @@
-import { Project, Experience, Skill } from "./types";
-
-export const projects: Project[] = [
+// Projects data
+export const projects = [
   {
     id: 1,
     title: "Indonesia Disaster Monitoring System",
     description:
       "An interactive web application that provides real-time information about natural disasters in Indonesia, utilizing React, Leaflet.js, and AWS for scalable cloud deployment.",
     technologies: ["React", "Leaflet.js", "AWS", "Vercel", "Node.js", "BNPB"],
-    image: "/previewproject1.gif",
+    image: "/images/previewproject1.gif",
     link: "https://petabencanaindonesia.web.id/",
     github: "https://github.com/Ryan-infitech/Map-Informasi-Bencana",
+    tags: ["Web App", "Mapping", "Full Stack"],
+    featured: true,
   },
   {
     id: 2,
@@ -17,9 +18,11 @@ export const projects: Project[] = [
     description:
       "A comprehensive web application for managing hospital operations, appointments, and patient records, developed using the Laravel framework and MySQL database.",
     technologies: ["PHP", "Laravel", "MySQL"],
-    image: "/previewproject2.gif",
+    image: "/images/previewproject2.gif",
     link: "#",
     github: "https://github.com/Ryan-infitech/Rumah-Sakit-Laravel",
+    tags: ["Web App", "Healthcare", "Backend"],
+    featured: false,
   },
   {
     id: 3,
@@ -27,29 +30,16 @@ export const projects: Project[] = [
     description:
       "A simple social media application built using Java with a graphical interface (GUI) using JFrame Form. This application integrates AWS DynamoDB as a database to store user data and social media content.",
     technologies: ["Java", "JFrame", "AWS DynamoDB", "NetBeans"],
-    image: "/previewproject3.gif",
+    image: "/images/previewproject3.gif",
     link: "#",
     github: "https://github.com/Ryan-infitech/Aplikasi-SocialMedia-java",
+    tags: ["Desktop App", "Social Media", "Database"],
+    featured: false,
   },
 ];
 
-export const experiences: Experience[] = [
-  {
-    id: 1,
-    company: "AfterPrahara",
-    position: "Full Stack Web Developer",
-    duration: "2024",
-    description: [
-      "Designed and developed the homepage for AfterPrahara, a band from West Sumatra, enhancing their online presence.",
-      "Collaborated closely with the band to capture their brand identity, translating it into a visually appealing and user-friendly website design.",
-      "Integrated features such as a media gallery, event schedule, and contact form to boost fan engagement and streamline communication.",
-      "Ensured the website was optimized for search engines, improving visibility and audience reach.",
-      "Utilized technologies including HTML, CSS, and JavaScript to build a responsive and accessible website.",
-    ],
-  },
-];
-
-export const skills: Skill[] = [
+// Skills data
+export const skills = [
   // Frontend
   { id: 1, name: "React", icon: "react", category: "frontend" },
   { id: 2, name: "TypeScript", icon: "code", category: "frontend" },
@@ -94,6 +84,24 @@ export const skills: Skill[] = [
   { id: 35, name: "Responsive Design", icon: "smartphone", category: "other" },
 ];
 
+// Experience data
+export const experiences = [
+  {
+    id: 1,
+    company: "AfterPrahara",
+    position: "Full Stack Web Developer",
+    duration: "2024",
+    description: [
+      "Designed and developed the homepage for AfterPrahara, a band from West Sumatra, enhancing their online presence.",
+      "Collaborated closely with the band to capture their brand identity, translating it into a visually appealing and user-friendly website design.",
+      "Integrated features such as a media gallery, event schedule, and contact form to boost fan engagement and streamline communication.",
+      "Ensured the website was optimized for search engines, improving visibility and audience reach.",
+      "Utilized technologies including HTML, CSS, and JavaScript to build a responsive and accessible website.",
+    ],
+  },
+];
+
+// Education data
 export const educationData = [
   {
     id: 1,
@@ -105,6 +113,7 @@ export const educationData = [
   },
 ];
 
+// Certification data
 export const certifications = [
   {
     id: 1,
@@ -114,3 +123,11 @@ export const certifications = [
     link: "https://aws.amazon.com/certification/certified-developer-associate/",
   },
 ];
+
+// Social links
+export const socialLinks = {
+  github: "https://github.com/Ryan-infitech",
+  linkedin: "https://www.linkedin.com/in/rian-septiawan",
+  twitter: "https://twitter.com/rianseptiawan",
+  email: "rianseptiawan@infitech.or.id",
+};
