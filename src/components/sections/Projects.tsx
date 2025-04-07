@@ -1,38 +1,28 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { projects } from "@/data/index";
 import { ExternalLink, Github, Filter } from "lucide-react";
-import Image from "next/image";
-import { Project } from "@/lib/types";
-import { projects as defaultProjects } from "@/lib/data"; // Import default projects as fallback
 
-interface ProjectsProps {
-  initialProjects?: Project[];
-}
-
-const Projects: React.FC<ProjectsProps> = ({
-  initialProjects = defaultProjects,
-}) => {
+export default function Projects() {
   const [filter, setFilter] = useState("all");
   const [showFilters, setShowFilters] = useState(false);
 
   // Get unique technology tags
   const allTechnologies = useMemo(() => {
-    const techSet = new Set();
-    initialProjects.forEach((project) => {
-      project.technologies.forEach((tech) => techSet.add(tech));
+    const techSet = new Set<string>();
+    projects.forEach((project) => {
+      project.technologies?.forEach((tech) => techSet.add(tech));
     });
     return Array.from(techSet).sort();
-  }, [initialProjects]);
+  }, []);
 
   // Filter projects
   const filteredProjects = useMemo(() => {
-    if (filter === "all") return initialProjects;
-    return initialProjects.filter((project) =>
-      project.technologies.includes(filter)
-    );
-  }, [filter, initialProjects]);
+    if (filter === "all") return projects;
+    return projects.filter((project) => project.technologies?.includes(filter));
+  }, [filter]);
 
   // Animation variants
   const container = {
@@ -146,7 +136,7 @@ const Projects: React.FC<ProjectsProps> = ({
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
         >
-          Showing {filteredProjects.length} of {initialProjects.length} projects
+          Showing {filteredProjects.length} of {projects.length} projects
         </motion.p>
 
         {/* Projects Grid - Individual project cards */}
@@ -156,7 +146,7 @@ const Projects: React.FC<ProjectsProps> = ({
           animate="show"
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
-          {filteredProjects.map((project, idx) => (
+          {filteredProjects.map((project) => (
             <motion.div
               key={project.id}
               variants={item}
@@ -164,37 +154,12 @@ const Projects: React.FC<ProjectsProps> = ({
               whileHover={{ y: -5 }}
             >
               {/* Project card image section */}
-              <div className="h-40 relative bg-gray-100 dark:bg-gray-800 overflow-hidden">
-                {project.image.toLowerCase().endsWith(".gif") ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                    onError={(e) => {
-                      console.error("Image load error for:", project.title);
-                      const target = e.target as HTMLImageElement;
-                      target.onerror = null;
-                      target.src = "/images/placeholder-project.jpg";
-                    }}
-                  />
-                ) : (
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill={true}
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={idx < 3}
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.onerror = null;
-                      target.src = "/images/placeholder-project.jpg";
-                    }}
-                  />
-                )}
-
-                {/* Technology badges - fixed structure */}
-                <div className="absolute top-0 right-0 p-2">
+              <div
+                className="h-40 bg-cover bg-center"
+                style={{ backgroundImage: `url(${project.image})` }}
+              >
+                <div className="h-full w-full bg-black bg-opacity-30 p-3 flex flex-col justify-between">
+                  {/* Technologies badges */}
                   <div className="flex flex-wrap gap-1 justify-end">
                     {project.technologies.slice(0, 3).map((tech, index) => (
                       <span
@@ -213,7 +178,7 @@ const Projects: React.FC<ProjectsProps> = ({
                 </div>
               </div>
 
-              {/* Project card content section - fix dark background */}
+              {/* Project card content section */}
               <div className="p-4 flex flex-col flex-grow">
                 <h3 className="text-base font-bold text-gray-800 dark:text-white mb-2">
                   {project.title}
@@ -222,7 +187,7 @@ const Projects: React.FC<ProjectsProps> = ({
                   {project.description}
                 </p>
 
-                {/* Action buttons - fix dark mode classes */}
+                {/* Action buttons */}
                 <div className="mt-auto flex gap-3">
                   {project.github && (
                     <motion.a
@@ -238,7 +203,7 @@ const Projects: React.FC<ProjectsProps> = ({
                     </motion.a>
                   )}
 
-                  {project.link && (
+                  {project.link && project.link !== "#" && (
                     <motion.a
                       href={project.link}
                       target="_blank"
@@ -280,6 +245,4 @@ const Projects: React.FC<ProjectsProps> = ({
       </div>
     </section>
   );
-};
-
-export default Projects;
+}

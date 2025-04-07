@@ -1,7 +1,9 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { socialLinks } from "@/data/index";
 import {
   Github,
   Linkedin,
@@ -13,13 +15,18 @@ import {
   Terminal,
   Sparkles,
 } from "lucide-react";
-import Image from "next/image";
 
 interface HomeProps {
   onNavigate: (section: number) => void;
 }
 
-const Home: React.FC<HomeProps> = ({ onNavigate }) => {
+export default function Home({ onNavigate }: HomeProps) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -40,16 +47,15 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     transition: {
       y: {
         repeat: Infinity,
-        repeatType: "reverse" as const,
+        repeatType: "reverse",
         duration: 2,
         ease: "easeInOut",
       },
     },
   };
 
-  // Custom animations for the images - modified for different directions and slower timing
   const bodyAnimation = {
-    hidden: { x: 200, opacity: 0 }, // Coming from right side
+    hidden: { x: 200, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,
@@ -57,21 +63,21 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         type: "spring",
         stiffness: 65,
         damping: 18,
-        delay: 0.7, // Longer delay
+        delay: 0.7,
       },
     },
   };
 
   const screenAnimation = {
-    hidden: { x: -200, opacity: 0 }, // Coming from left side
+    hidden: { x: -200, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 35, // Lower stiffness for slower animation
+        stiffness: 35,
         damping: 18,
-        delay: 0.5, // Longer delay
+        delay: 0.5,
       },
     },
   };
@@ -89,6 +95,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       },
     },
   };
+
+  if (!isMounted) return null;
 
   return (
     <section className="min-h-full w-full flex items-center justify-center bg-white dark:bg-gray-900 px-4 sm:px-6 py-12 md:py-16 overflow-hidden relative">
@@ -164,7 +172,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             </motion.p>
           </div>
 
-          {/* Right content - profile image - moved up by 30px */}
+          {/* Right content - profile image */}
           <div className="md:w-1/2 order-1 md:order-2 flex justify-center md:justify-end -mt-10">
             <div className="relative w-56 h-56 sm:w-80 sm:h-80 md:w-96 md:h-96">
               <div className="w-full h-full relative">
@@ -305,13 +313,14 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
-                  <Image
-                    src="/images/ecommers.gif"
-                    alt="Project Alpha - E-commerce Platform"
-                    className="h-24 w-full object-cover rounded-md mb-3"
-                    width={300}
-                    height={100}
-                  />
+                  <div className="h-24 w-full relative rounded-md mb-3 overflow-hidden">
+                    <Image 
+                      src="/images/ecommers.gif" 
+                      alt="Project Alpha - E-commerce Platform"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <h4 className="font-medium text-gray-900 dark:text-white">
                     Project Alpha
                   </h4>
@@ -320,18 +329,19 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   </p>
                 </div>
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
-                  <Image
-                    src="/images/socialmedia.gif"
-                    alt="Project Beta - Social Media App"
-                    className="h-24 w-full object-cover rounded-md mb-3"
-                    width={300}
-                    height={100}
-                  />
+                  <div className="h-24 w-full relative rounded-md mb-3 overflow-hidden">
+                    <Image 
+                      src="/images/socialmedia.gif" 
+                      alt="Project Beta - Social Media App"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                   <h4 className="font-medium text-gray-900 dark:text-white">
                     Project Beta
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Cross-Platform social media
+                   Cross-Platform social media
                   </p>
                 </div>
               </div>
@@ -341,7 +351,8 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
           {/* Sidebar - 5 columns */}
           <div className="md:col-span-5">
             {/* Call to action card */}
-            <motion.divz    variants={itemVariants}
+            <motion.div
+              variants={itemVariants}
               className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 mb-6"
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
@@ -354,7 +365,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
               <div className="flex flex-wrap gap-3 mb-6">
                 <motion.a
-                  href="https://github.com/Ryan-infitech"
+                  href={socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
@@ -365,7 +376,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   <span className="font-medium">GitHub</span>
                 </motion.a>
                 <motion.a
-                  href="https://www.linkedin.com/in/rian-septiawan"
+                  href={socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
@@ -376,7 +387,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   <span className="font-medium">LinkedIn</span>
                 </motion.a>
                 <motion.a
-                  href="mailto:rianseptiawan@infitech.or.id"
+                  href={`mailto:${socialLinks.email}`}
                   className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -385,7 +396,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   <span className="font-medium">Email</span>
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="/resume.pdf"
                   target="_blank"
                   className="flex items-center gap-2 px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
                   whileHover={{ scale: 1.05 }}
@@ -416,7 +427,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
                   <ArrowRight size={16} />
                 </motion.button>
               </div>
-            </motion.divz>
+            </motion.div>
 
             {/* Latest blog or testimonial */}
             <motion.div
@@ -453,6 +464,4 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       </motion.div>
     </section>
   );
-};
-
-export default Home;
+}

@@ -1,11 +1,10 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { experiences } from "../../lib/data";
+import { experiences } from "@/data/index";
 import { Briefcase } from "lucide-react";
 
-const Experience: React.FC = () => {
+export default function Experience() {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -108,6 +107,4 @@ const Experience: React.FC = () => {
       </div>
     </section>
   );
-};
-
-export default Experience;
+}
