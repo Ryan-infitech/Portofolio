@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     telephone: false,
     address: false,
   },
-  metadataBase: new URL("https://rianseptiawan.me"),
+  metadataBase: new URL("https://www.rianseptiawan.engineer"),
   alternates: {
     canonical: "/",
   },
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: "Rian Septiawan - Full Stack Developer Portfolio",
     description:
       "Full Stack Developer specializing in React, TypeScript, Node.js, and AWS. Creating responsive web applications with modern UI/UX principles.",
-    url: "https://rianseptiawan.me",
+    url: "https://www.rianseptiawan.engineer",
     siteName: "Rian Septiawan Portfolio",
     locale: "en_US",
     type: "website",

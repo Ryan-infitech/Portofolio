@@ -131,5 +131,5 @@ export const socialLinks = {
   twitter: "https://twitter.com/rianseptiawan",
   instagram: "https://instagram.com/ryan.septiawan__",
   email: "rianseptiawan@infitech.or.id",
-  website: "https://rianseptiawan.me",
+  website: "https://www.rianseptiawan.engineer",
 };
