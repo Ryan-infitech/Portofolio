@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Moon, Sun, Menu, X } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "@/providers/ThemeProvider";
 
 interface NavbarProps {
   currentSection: number;
@@ -20,148 +19,140 @@ const sections = [
   { id: 4, name: "Contact" },
 ];
 
-const Navbar: React.FC<NavbarProps> = ({
+export default function Navbar({
   currentSection,
   setCurrentSection,
   isMenuOpen,
   setIsMenuOpen,
-}) => {
+}: NavbarProps) {
   const { theme, toggleTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
-  // Set mounted to true once component is mounted on client
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Create event handlers here to prevent hydration mismatches
-  const handleSectionClick = (id: number) => {
-    if (mounted) {
-      setCurrentSection(id);
-      setIsMenuOpen(false);
-    }
-  };
-
-  const handleThemeToggle = () => {
-    if (mounted) {
-      toggleTheme();
-    }
-  };
-
-  const handleMenuToggle = () => {
-    if (mounted) {
-      setIsMenuOpen(!isMenuOpen);
-    }
-  };
-
-  // Use the same structure for both server and client, just disable animations and interactions server-side
   return (
-    <nav 
+    <motion.nav
       className="fixed top-0 left-0 right-0 z-50 px-5 sm:px-8 py-4 flex justify-between items-center bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg shadow-sm"
-      suppressHydrationWarning
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      <div 
+      <motion.div
         className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white flex items-center"
-        suppressHydrationWarning
+        whileHover={{ scale: 1.03 }}
+        transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
         <span className="text-indigo-600 dark:text-indigo-400 mr-1">Rian</span>
         Septiawan
-      </div>
+      </motion.div>
 
       {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center space-x-6" suppressHydrationWarning>
-        <ul className="flex space-x-1" suppressHydrationWarning>
+      <div className="hidden md:flex items-center space-x-6">
+        <ul className="flex space-x-1">
           {sections.map((section) => (
-            <li 
-              key={section.id} 
+            <motion.li
+              key={section.id}
               className="relative px-2"
-              suppressHydrationWarning
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <button
-                onClick={() => handleSectionClick(section.id)}
+                onClick={() => setCurrentSection(section.id)}
                 className={`relative py-2 px-3 rounded-full font-medium text-sm transition-colors duration-200
                   ${
                     currentSection === section.id
                       ? "text-indigo-600 dark:text-indigo-400"
                       : "text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400"
                   }`}
-                suppressHydrationWarning
               >
                 {section.name}
-                {currentSection === section.id && mounted && (
-                  <div 
+                {currentSection === section.id && (
+                  <motion.div
+                    layoutId="activeSection"
                     className="absolute inset-0 bg-indigo-50 dark:bg-indigo-900/30 rounded-full -z-10"
-                    suppressHydrationWarning
-                  ></div>
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
                 )}
               </button>
-            </li>
+            </motion.li>
           ))}
         </ul>
 
-        <button
-          onClick={handleThemeToggle}
+        <motion.button
+          onClick={toggleTheme}
           className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-          aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-          suppressHydrationWarning
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+          aria-label={
+            theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+          }
         >
           {theme === "light" ? <Moon size={18} /> : <Sun size={18} />}
-        </button>
+        </motion.button>
       </div>
 
       {/* Mobile Navigation Button */}
-      <div className="flex items-center space-x-3 md:hidden" suppressHydrationWarning>
-        <button
-          onClick={handleThemeToggle}
+      <div className="flex items-center space-x-3 md:hidden">
+        <motion.button
+          onClick={toggleTheme}
           className="p-1.5 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
-          aria-label={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-          suppressHydrationWarning
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label={
+            theme === "light" ? "Switch to dark mode" : "Switch to light mode"
+          }
         >
           {theme === "light" ? <Moon size={16} /> : <Sun size={16} />}
-        </button>
+        </motion.button>
 
-        <button
-          onClick={handleMenuToggle}
+        <motion.button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="p-1.5 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-white transition-colors duration-200"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          suppressHydrationWarning
         >
           {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        </motion.button>
       </div>
 
-      {/* Mobile Menu - Only render on client side */}
-      {mounted && isMenuOpen && (
-        <div
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <motion.div
           className="absolute top-full left-0 right-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg md:hidden mt-1 rounded-b-xl overflow-hidden"
-          suppressHydrationWarning
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <ul className="py-3" suppressHydrationWarning>
+          <ul className="py-3">
             {sections.map((section) => (
-              <li
+              <motion.li
                 key={section.id}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.2, delay: section.id * 0.05 }}
                 className="px-5 py-2"
-                suppressHydrationWarning
               >
                 <button
-                  onClick={() => handleSectionClick(section.id)}
+                  onClick={() => {
+                    setCurrentSection(section.id);
+                    setIsMenuOpen(false);
+                  }}
                   className={`block w-full text-left font-medium text-sm py-2 px-3 rounded-lg transition-colors duration-200
                     ${
                       currentSection === section.id
                         ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/30"
                         : "text-gray-600 dark:text-gray-300"
                     }`}
-                  suppressHydrationWarning
                 >
                   {section.name}
                 </button>
-              </li>
+              </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
       )}
-    </nav>
+    </motion.nav>
   );
-};
-
-export default Navbar;
+}
