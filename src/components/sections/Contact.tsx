@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ContactFallback from "@/components/ContactFallback";
 import {
   Send,
   MapPin,
@@ -68,7 +69,7 @@ export default function Contact() {
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || "Something went wrong");
+        throw new Error(data.message || data.error || "Something went wrong");
       }
 
       console.log("Email sent successfully:", data);
@@ -296,7 +297,8 @@ export default function Contact() {
                     Message Sent Successfully!
                   </h4>
                   <p className="text-green-600 dark:text-green-400 mb-4">
-                    thanks for contacting. I will get back to you as soon as possible :)
+                    thanks for contacting. I will get back to you as soon as
+                    possible :)
                   </p>
                 </motion.div>
               ) : status === "error" ? (
@@ -317,20 +319,17 @@ export default function Contact() {
                   <p className="text-red-600 dark:text-red-400 mb-4">
                     {errorMessage}
                   </p>
-                  <div className="flex gap-4">
+                  <div className="flex flex-wrap gap-4 justify-center mb-6">
                     <button
                       onClick={() => setStatus("idle")}
                       className="px-4 py-2 bg-red-600 dark:bg-red-500 text-white rounded-lg hover:bg-red-700 dark:hover:bg-red-600 transition-colors"
                     >
                       Try Again
                     </button>
-                    <a
-                      href="mailto:rianseptiawan@infitech.or.id"
-                      className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-                    >
-                      Send Email Directly
-                    </a>
                   </div>
+
+                  {/* Add the fallback component */}
+                  <ContactFallback email="rianseptiawan@infitech.or.id" />
                 </motion.div>
               ) : (
                 <form

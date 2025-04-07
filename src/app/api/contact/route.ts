@@ -16,12 +16,37 @@ export async function POST(req: Request) {
       );
     }
 
+    // Check if environment variables are set
+    if (
+      !process.env.EMAIL_USER ||
+      !process.env.EMAIL_PASSWORD ||
+      !process.env.EMAIL_RECIPIENT
+    ) {
+      console.error("Missing email configuration environment variables");
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Email service not properly configured",
+          error: "Missing configuration",
+        },
+        { status: 500 }
+      );
+    }
+
+    console.log("Setting up email transport...");
+
     // Create a transporter using SMTP for Gmail
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com", // Using direct SMTP host instead of 'service'
+      port: 465,
+      secure: true, // Use SSL
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
+      },
+      tls: {
+        // Do not fail on invalid certificates
+        rejectUnauthorized: false,
       },
     });
 
@@ -50,8 +75,24 @@ export async function POST(req: Request) {
       `,
     };
 
+    console.log("Attempting to send email...");
+
+    // Verify SMTP connection
+    await new Promise((resolve, reject) => {
+      transporter.verify(function (error, success) {
+        if (error) {
+          console.error("SMTP verification error:", error);
+          reject(error);
+        } else {
+          console.log("Server is ready to take our messages");
+          resolve(success);
+        }
+      });
+    });
+
     // Send the email
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Message sent: %s", info.messageId);
 
     return NextResponse.json({
       success: true,
@@ -64,6 +105,7 @@ export async function POST(req: Request) {
         success: false,
         message: "Failed to send your message",
         error: error.message || "Unknown error",
+        stack: process.env.NODE_ENV === "development" ? error.stack : undefined,
       },
       { status: 500 }
     );
