@@ -1,55 +1,48 @@
-@import "tailwindcss";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 249, 250, 251;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 17, 24, 39;
+  --background-end-rgb: 31, 41, 55;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  min-height: 100vh;
 }
 
-/* For better scrolling experience */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar styling */
 @layer utilities {
   .scrollbar-thin {
     scrollbar-width: thin;
   }
 
-  .scrollbar-thumb-indigo-500::-webkit-scrollbar-thumb {
-    background-color: #6366f1;
-    border-radius: 9999px;
+  .scrollbar-thumb-indigo-500 {
+    scrollbar-color: #6366f1 transparent;
   }
 
-  .scrollbar-track-gray-200::-webkit-scrollbar-track {
-    background-color: #e5e7eb;
+  .scrollbar-track-gray-200 {
+    scrollbar-color: #e5e7eb transparent;
   }
 
-  .dark .scrollbar-thumb-indigo-400::-webkit-scrollbar-thumb {
-    background-color: #818cf8;
+  .dark .scrollbar-thumb-indigo-400 {
+    scrollbar-color: #818cf8 transparent;
   }
 
-  .dark .scrollbar-track-gray-700::-webkit-scrollbar-track {
-    background-color: #374151;
-  }
-
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  .dark .scrollbar-track-gray-700 {
+    scrollbar-color: #374151 transparent;
   }
 }
