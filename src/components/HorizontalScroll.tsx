@@ -37,10 +37,10 @@ export default function HorizontalScroll({
         const sections = Array.from(containerRef.current.children);
         const screenWidth = window.innerWidth;
         const widths = sections.map(() => screenWidth);
-        
+
         setSectionWidths(widths);
         setContainerWidth(screenWidth * sections.length);
-        
+
         // Apply fixed width to each section
         sections.forEach((section) => {
           const sectionEl = section as HTMLElement;
@@ -97,7 +97,13 @@ export default function HorizontalScroll({
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [children.length, currentSection, lastScrollTime, isScrolling, setCurrentSection]);
+  }, [
+    children.length,
+    currentSection,
+    lastScrollTime,
+    isScrolling,
+    setCurrentSection,
+  ]);
 
   // Handle wheel events for navigation
   useEffect(() => {
@@ -117,7 +123,10 @@ export default function HorizontalScroll({
       const isScrollingUp = e.deltaY < 0;
 
       // If we can scroll vertically within the section, do that first
-      if ((isScrollingDown && canScrollDown) || (isScrollingUp && canScrollUp)) {
+      if (
+        (isScrollingDown && canScrollDown) ||
+        (isScrollingUp && canScrollUp)
+      ) {
         return; // Let default scroll happen
       }
 
@@ -141,7 +150,13 @@ export default function HorizontalScroll({
 
     window.addEventListener("wheel", handleWheel, { passive: false });
     return () => window.removeEventListener("wheel", handleWheel);
-  }, [children.length, currentSection, lastScrollTime, isScrolling, setCurrentSection]);
+  }, [
+    children.length,
+    currentSection,
+    lastScrollTime,
+    isScrolling,
+    setCurrentSection,
+  ]);
 
   // Handle keyboard navigation
   useEffect(() => {
@@ -165,7 +180,13 @@ export default function HorizontalScroll({
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [children.length, currentSection, lastScrollTime, isScrolling, setCurrentSection]);
+  }, [
+    children.length,
+    currentSection,
+    lastScrollTime,
+    isScrolling,
+    setCurrentSection,
+  ]);
 
   const calculateX = () => {
     if (sectionWidths.length === 0) return 0;
@@ -185,7 +206,9 @@ export default function HorizontalScroll({
           {children.map((child, index) => (
             <div
               key={index}
-              ref={(el) => (sectionRefs.current[index] = el)}
+              ref={(el) => {
+                sectionRefs.current[index] = el;
+              }}
               className="overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-thumb-indigo-500 scrollbar-track-gray-200 dark:scrollbar-thumb-indigo-400 dark:scrollbar-track-gray-700"
             >
               {child}
