@@ -296,8 +296,7 @@ export default function Contact() {
                     Message Sent Successfully!
                   </h4>
                   <p className="text-green-600 dark:text-green-400 mb-4">
-                    Thank you for reaching out. I'll get back to you as soon as
-                    possible.
+                    thanks for contacting. I will get back to you as soon as possible :)
                   </p>
                 </motion.div>
               ) : status === "error" ? (
