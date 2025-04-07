@@ -63,4 +63,5 @@ export interface SocialLinks {
   twitter: string;
   instagram: string;
   email: string;
+  website: string;
 }
