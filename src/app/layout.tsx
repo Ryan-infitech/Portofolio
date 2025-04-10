@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     "Full Stack Developer specializing in React, TypeScript, Node.js, and AWS. Creating responsive web applications with modern UI/UX principles.",
   keywords: [
     "full stack developer",
+    "rian",
+    "programmer padang",
+    "programmer sumatera barat",
+    "jasa pembuatan website padang",
+    "web developer padang",
     "web development",
     "React",
     "TypeScript",
@@ -79,7 +84,7 @@ export const metadata: Metadata = {
     images: ["/images/og-image.jpg"],
   },
   icons: {
-    icon: [{ url: "/images/tabaorendong.ico" }, { url: "/favicon.ico" }],
+    icon: { url: "/images/tabaorendong.ico" },
     apple: [{ url: "/apple-icon.png" }],
     other: [
       {
