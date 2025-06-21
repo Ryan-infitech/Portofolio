@@ -256,7 +256,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   Frontend
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                  React, Vue, Js, TypeScript, Tailwind CSS
+                  React, Next, Vue, Js, TypeScript, Tailwind CSS
                 </p>
               </motion.div>
 
@@ -314,9 +314,9 @@ export default function Home({ onNavigate }: HomeProps) {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
                   <div className="h-24 w-full relative rounded-md mb-3 overflow-hidden">
-                    <Image 
-                      src="/images/ecommers.gif" 
-                      alt="Project Alpha - E-commerce Platform"
+                    <Image
+                      src="/images/walinagari.gif"
+                      alt="Project Alpha - walinagari"
                       fill
                       className="object-cover"
                     />
@@ -325,13 +325,13 @@ export default function Home({ onNavigate }: HomeProps) {
                     Project Alpha
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Full-stack web-app e-commerce platform
+                    Full-stack web-app platform walinagari
                   </p>
                 </div>
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
                   <div className="h-24 w-full relative rounded-md mb-3 overflow-hidden">
-                    <Image 
-                      src="/images/socialmedia.gif" 
+                    <Image
+                      src="/images/socialmedia.gif"
                       alt="Project Beta - Social Media App"
                       fill
                       className="object-cover"
@@ -341,7 +341,7 @@ export default function Home({ onNavigate }: HomeProps) {
                     Project Beta
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                   Cross-Platform social media
+                    Cross-Platform social media
                   </p>
                 </div>
               </div>
