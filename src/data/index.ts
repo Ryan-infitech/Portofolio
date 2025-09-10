@@ -1,7 +1,36 @@
 // Projects data
 export const projects = [
-  {
+    {
     id: 1,
+    title: "Nagari Guguak Malalo - Regional Digital Portal",
+    description:
+      "Comprehensive digital public service portal for Nagari Guguak Malalo, West Sumatra. Features government services, UMKM platform, tourism promotion, and citizen portal with real-time notifications, document management, and multi-role authentication system built with modern full-stack architecture.",
+    technologies: [
+      "Next.js 15", 
+      "React 18.2", 
+      "TypeScript 5.0", 
+      "Express.js 4.18+", 
+      "PostgreSQL", 
+      "Supabase", 
+      "Prisma 5.8+", 
+      "Tailwind CSS 3.4", 
+      "Shadcn/ui", 
+      "TanStack Query", 
+      "Zustand", 
+      "React Hook Form", 
+      "Framer Motion", 
+      "Socket.IO", 
+      "JWT", 
+      "Zod"
+    ],
+    image: "/images/gumala.gif",
+    link: "https://guguakmalalo.id",
+    github: "https://github.com/Ryan-infitech/Nagari-Guguak-Malalo-WebApp",
+    tags: ["Government Portal", "Full Stack", "Web App", "Regional Services"],
+    featured: true,
+  },
+  {
+    id: 2,
     title: "TokoTech - E-Commerce Platform",
     description:
       "A comprehensive full-stack e-commerce platform for technology products, featuring secure payment processing via Midtrans, admin dashboard with real-time analytics, inventory management, and modern shopping experience built with Next.js 14 and Express.js.",
@@ -13,7 +42,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 2,
+    id: 3,
     title: "Indonesia Disaster Monitoring System",
     description:
       "An interactive web application that provides real-time information about natural disasters in Indonesia, utilizing React, Leaflet.js, and AWS for scalable cloud deployment.",
@@ -25,7 +54,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Hospital Management System",
     description:
       "A comprehensive web application for managing hospital operations, appointments, and patient records, developed using the Laravel framework and MySQL database.",
@@ -37,7 +66,7 @@ export const projects = [
     featured: false,
   },
   {
-    id: 4,
+    id: 5,
     title: "Java Social Media Application",
     description:
       "A simple social media application built using Java with a graphical interface (GUI) using JFrame Form. This application integrates AWS DynamoDB as a database to store user data and social media content.",
