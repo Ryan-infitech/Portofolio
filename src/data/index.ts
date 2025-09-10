@@ -127,8 +127,23 @@ export const skills = [
 
 // Experience data
 export const experiences = [
-  {
+    {
     id: 1,
+    company: "Wali Nagari Guguak Malalo",
+    position: "Intern Full Stack Web Developer",
+    duration: "2025",
+    description: [
+      "Led the development of a comprehensive digital public service portal for regional government services in West Sumatra.",
+      "Architected and implemented full-stack solution using Next.js 15, TypeScript, Express.js, and PostgreSQL with Supabase.",
+      "Built multi-role authentication system with JWT supporting ADMIN, STAFF, RESIDENT, and VISITOR access levels.",
+      "Developed real-time notification system using Socket.IO for instant updates on document processing and service requests.",
+      "Integrated UMKM (SME) platform and tourism promotion features to support local economic development.",
+      "Implemented comprehensive security measures including rate limiting, CORS protection, and encrypted data storage.",
+      "Created responsive PWA with offline capabilities optimized for mobile-first government service delivery.",
+    ],
+  },
+  {
+    id: 2,
     company: "AfterPrahara",
     position: "Full Stack Web Developer",
     duration: "2024",
