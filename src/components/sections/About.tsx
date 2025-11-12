@@ -22,7 +22,7 @@ import {
   Download,
   Mail,
   MapPin,
-  Clock,
+  Briefcase,
 } from "lucide-react";
 
 const getIcon = (iconName: string) => {
@@ -136,9 +136,17 @@ export default function About() {
                     <span>Padang, Indonesia</span>
                   </div>
                   <div className="flex items-center gap-3 text-gray-700 dark:text-gray-300">
-                    <Clock size={18} className="text-green-500" />
-                    <span className="text-green-600 dark:text-green-400">
-                      Available for hire
+                    <Briefcase size={18} className="text-indigo-500" />
+                    <span className="font-medium text-gray-700 dark:text-gray-300">
+                      CEO at{" "}
+                      <a
+                        href="https://howarts.tech"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline decoration-indigo-400 dark:decoration-indigo-500 underline-offset-2 hover:decoration-2 transition-all"
+                      >
+                        howarts.tech
+                      </a>
                     </span>
                   </div>
                 </div>
