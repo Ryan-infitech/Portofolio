@@ -1,27 +1,68 @@
 // Projects data
 export const projects = [
-    {
+  {
     id: 1,
+    title: "Hostpro - Online Learning & Professional Services Platform",
+    description:
+      "Comprehensive online learning and professional development platform featuring high-quality courses, mentor system, event booking services (MC/EO), real-time encrypted chat, payment gateway integration with Midtrans, and multi-role authentication system. Includes admin dashboard with analytics, live monitoring, and complete booking management built with modern full-stack architecture.",
+    technologies: [
+      "Next.js 13.5",
+      "React 18.2",
+      "TypeScript 5.2",
+      "Express.js 5.1",
+      "PostgreSQL",
+      "Supabase",
+      "Prisma 6.17",
+      "Tailwind CSS 3.3",
+      "Shadcn/ui",
+      "Radix UI",
+      "Socket.IO 4.8",
+      "React Hook Form",
+      "SWR",
+      "Zod",
+      "JWT",
+      "Bcrypt",
+      "Midtrans",
+      "Cloudinary",
+      "Nodemailer",
+      "Recharts",
+      "Google OAuth",
+      "Winston",
+    ],
+    image: "/images/prev-hostpro.gif",
+    link: "https://hostpro.id",
+    github: "https://github.com/Ryan-infitech/Hostpro-WebApp",
+    tags: [
+      "E-Learning",
+      "Full Stack",
+      "Web App",
+      "Professional Services",
+      "Real-time Chat",
+    ],
+    featured: true,
+  },
+  {
+    id: 2,
     title: "Nagari Guguak Malalo - Regional Digital Portal",
     description:
       "Comprehensive digital public service portal for Nagari Guguak Malalo, West Sumatra. Features government services, UMKM platform, tourism promotion, and citizen portal with real-time notifications, document management, and multi-role authentication system built with modern full-stack architecture.",
     technologies: [
-      "Next.js 15", 
-      "React 18.2", 
-      "TypeScript 5.0", 
-      "Express.js 4.18+", 
-      "PostgreSQL", 
-      "Supabase", 
-      "Prisma 5.8+", 
-      "Tailwind CSS 3.4", 
-      "Shadcn/ui", 
-      "TanStack Query", 
-      "Zustand", 
-      "React Hook Form", 
-      "Framer Motion", 
-      "Socket.IO", 
-      "JWT", 
-      "Zod"
+      "Next.js 15",
+      "React 18.2",
+      "TypeScript 5.0",
+      "Express.js 4.18+",
+      "PostgreSQL",
+      "Supabase",
+      "Prisma 5.8+",
+      "Tailwind CSS 3.4",
+      "Shadcn/ui",
+      "TanStack Query",
+      "Zustand",
+      "React Hook Form",
+      "Framer Motion",
+      "Socket.IO",
+      "JWT",
+      "Zod",
     ],
     image: "/images/gumala.gif",
     link: "https://guguakmalalo.id",
@@ -30,11 +71,22 @@ export const projects = [
     featured: true,
   },
   {
-    id: 2,
+    id: 3,
     title: "TokoTech - E-Commerce Platform",
     description:
       "A comprehensive full-stack e-commerce platform for technology products, featuring secure payment processing via Midtrans, admin dashboard with real-time analytics, inventory management, and modern shopping experience built with Next.js 14 and Express.js.",
-    technologies: ["Next.js 14", "Express.js", "PostgreSQL", "Supabase", "Tailwind CSS", "NextAuth.js", "Midtrans", "Chart.js", "Zustand", "React Hook Form"],
+    technologies: [
+      "Next.js 14",
+      "Express.js",
+      "PostgreSQL",
+      "Supabase",
+      "Tailwind CSS",
+      "NextAuth.js",
+      "Midtrans",
+      "Chart.js",
+      "Zustand",
+      "React Hook Form",
+    ],
     image: "/images/tokotech.gif",
     link: "https://tokotech.live/",
     github: "https://github.com/Ryan-infitech/Tokotech-webApp",
@@ -42,7 +94,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Indonesia Disaster Monitoring System",
     description:
       "An interactive web application that provides real-time information about natural disasters in Indonesia, utilizing React, Leaflet.js, and AWS for scalable cloud deployment.",
@@ -54,7 +106,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 4,
+    id: 5,
     title: "Hospital Management System",
     description:
       "A comprehensive web application for managing hospital operations, appointments, and patient records, developed using the Laravel framework and MySQL database.",
@@ -66,7 +118,7 @@ export const projects = [
     featured: false,
   },
   {
-    id: 5,
+    id: 6,
     title: "Java Social Media Application",
     description:
       "A simple social media application built using Java with a graphical interface (GUI) using JFrame Form. This application integrates AWS DynamoDB as a database to store user data and social media content.",
@@ -127,7 +179,7 @@ export const skills = [
 
 // Experience data
 export const experiences = [
-    {
+  {
     id: 1,
     company: "Wali Nagari Guguak Malalo",
     position: "Intern Full Stack Web Developer",
@@ -173,6 +225,13 @@ export const educationData = [
 export const certifications = [
   {
     id: 1,
+    name: "MikroTik Certified Network Associate (MTCNA)",
+    issuer: "MikroTik",
+    date: "2024",
+    link: "https://mikrotik.com/training/certificates/c507726c9e002328a87a",
+  },
+  {
+    id: 2,
     name: "AWS Certified Developer - Associate",
     issuer: "Amazon Web Services",
     date: "2025",
