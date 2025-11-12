@@ -227,14 +227,14 @@ export const certifications = [
     id: 1,
     name: "MikroTik Certified Network Associate (MTCNA)",
     issuer: "MikroTik",
-    date: "2024",
+    date: "2025",
     link: "https://mikrotik.com/training/certificates/c507726c9e002328a87a",
   },
   {
     id: 2,
     name: "AWS Certified Developer - Associate",
     issuer: "Amazon Web Services",
-    date: "2025",
+    date: "2024",
     link: "https://aws.amazon.com/certification/certified-developer-associate/",
   },
 ];
