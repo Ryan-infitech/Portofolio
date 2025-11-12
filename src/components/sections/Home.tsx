@@ -165,8 +165,8 @@ export default function Home({ onNavigate }: HomeProps) {
               variants={itemVariants}
               className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-8 text-center md:text-left"
             >
-              I build exceptional and accessible digital experiences for the
-              web. With expertise in modern JavaScript frameworks, responsive
+              I build exceptional and accessible digital experiences on Cross-Platform
+              . With expertise in modern JavaScript frameworks, responsive
               design, and server-side technologies, I bring ideas to life
               through clean code.
             </motion.p>
