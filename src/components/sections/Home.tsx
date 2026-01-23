@@ -315,8 +315,8 @@ export default function Home({ onNavigate }: HomeProps) {
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
                   <div className="h-24 w-full relative rounded-md mb-3 overflow-hidden">
                     <Image
-                      src="/images/hostpro.gif"
-                      alt="Project Alpha - HostPro"
+                      src="/images/sumatrans.gif"
+                      alt="Project Alpha - Sumatrans"
                       fill
                       className="object-cover"
                     />
@@ -325,7 +325,7 @@ export default function Home({ onNavigate }: HomeProps) {
                     Project Alpha
                   </h4>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Full-stack web-app online class & MC/EO platform HostPro.id
+                    Full-stack Cross platform web/app integrated travels management Sumatrans
                   </p>
                 </div>
                 <div className="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700">
