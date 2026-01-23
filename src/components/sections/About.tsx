@@ -151,8 +151,9 @@ export default function About() {
                   </div>
                 </div>
                 <motion.a
-                  href="/resume.pdf"
+                  href="/images/Rian Septiawan.pdf"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-medium rounded-xl transition-all shadow-md hover:shadow-lg"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
