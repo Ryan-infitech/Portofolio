@@ -145,7 +145,7 @@ export default function Home({ onNavigate }: HomeProps) {
           </h1>
           <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
             <span className="inline-block text-xs font-semibold tracking-wider uppercase text-indigo-600 dark:text-indigo-400 px-3 py-1 bg-indigo-50 dark:bg-indigo-900/30 rounded-full">
-              Full Stack Developer
+              Full Stack Cross-platform Developer
             </span>
             <motion.div
               animate={floatingAnimation}
@@ -272,7 +272,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   Backend
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Node.js, Express, Sql, NoSql, PostgreSQL
+                  Node.js, nestjs, Express, Laravel, SQL, NoSQL, PostgreSQL, MySQL
                 </p>
               </motion.div>
 
@@ -288,7 +288,7 @@ export default function Home({ onNavigate }: HomeProps) {
                   DevOps
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
-                  Docker, CI/CD, AWS, Automation, Supabase, Git
+                  Docker, CI/CD, AWS, Azure, Automation, Cloudflare, Git, NginX, Pm2, Vercel, Railways, Supabase
                 </p>
               </motion.div>
             </motion.div>
