@@ -178,10 +178,7 @@ export default function About() {
                   robust backend systems with Laravel.
                 </p>
                 <p>
-                  I am currently pursuing my studies at Universitas Negeri
-                  Padang, majoring in Educational Technology Informatics. This
-                  academic path allows me to blend my technical skills with a
-                  passion for teaching and sharing knowledge.
+                  I studied at Padang State University, majoring in Educational Information Technology. This academic path allowed me to combine my technical skills with my passion for teaching and sharing knowledge.
                 </p>
                 <p>
                   Beyond coding, I have a strong appreciation for creativity,
