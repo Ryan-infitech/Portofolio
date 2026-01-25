@@ -383,9 +383,7 @@ export default function About() {
                               <span className="font-medium text-indigo-600 dark:text-indigo-400">
                                 {edu.institution}
                               </span>
-                              <div className="inline-flex px-2.5 py-0.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 text-xs rounded-full">
-                                {edu.duration}
-                              </div>
+
                             </div>
                             <p className="text-gray-600 dark:text-gray-300">
                               {edu.description}

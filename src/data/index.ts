@@ -372,7 +372,6 @@ export const educationData = [
     id: 1,
     degree: "Bachelor of Informatic Engineering Education",
     institution: "Padang State University",
-    duration: "2023 - 2027",
     description:
       "Specialized in web development with expertise in React for building dynamic user interfaces and Laravel for developing robust backend systems. Passionate about integrating machine learning applications into web platforms to enhance functionality and user experience.",
   },
