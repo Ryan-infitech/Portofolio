@@ -4,6 +4,25 @@ import { Cloud } from "lucide-react";
 export const projects = [
   {
     id: 1,
+    title: "BARASIAH - Professional Cleaning Service Platform",
+    description:
+      "A modern booking platform for professional cleaning services in Jakarta. Features service catalog with multiple cleaning packages (Express, Deep Cleaning, Regular, Move In/Out), online booking system, WhatsApp integration for customer support, service area coverage map, testimonials section, and responsive design optimized for conversions.",
+    technologies: [
+      "Next.js 14",
+      "TypeScript",
+      "Tailwind CSS",
+      "Supabase",
+      "Framer Motion",
+      "Vercel",
+    ],
+    image: "/images/barasiah.gif",
+    link: "https://barasiah.vercel.app/",
+    github: "#",
+    tags: ["Landing Page", "Full Stack", "Web App", "Business"],
+    featured: true,
+  },
+  {
+    id: 2,
     title: "Buku Induk Kesetaraan - School Management System",
     description:
       "A multi-tenant school management platform designed for PKBM (Community Learning Centers) and SKB (Learning Activity Studios) for equivalency education in Indonesia. Features student data management with NISN & NIK validation, academic system with grade input & verification, multi-level access control (Superadmin, Admin, Teacher), automatic report generation (PDF/Excel), and real-time dashboard statistics.",
@@ -28,7 +47,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 2,
+    id: 3,
     title: "ORMAWA UNP - Student Organization Portal",
     description:
       "An integrated digital platform for managing student organization activities at Universitas Negeri Padang. Features organization directory management, event scheduling & registration, news & announcements system, member registration portal, and comprehensive admin dashboard for university-wide student organization management.",
@@ -49,7 +68,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 3,
+    id: 4,
     title: "Phyxel - IoT Gamification Learning Platform",
     description:
       "A gamified Internet of Things (IoT) learning platform combining 2D side-scrolling game with structured learning system. Features Phaser.js game engine with component collection mechanics, XP & leveling system, achievements, virtual economy, real-time chat, leaderboards, IoT courses & virtual labs, and social features. The name 'Phyxel' combines 'Physics' and 'Pixel'.",
@@ -74,7 +93,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 4,
+    id: 5,
     title: "Fintar - AI-Powered Financial Management Platform",
     description:
       "An AI-powered financial platform designed to empower Indonesian families and SMEs in managing finances smartly. Features AI financial chat assistant with GPT-4, personal finance dashboard, budget tracking & analytics, investment portfolio tracking, financial education module, consultant booking system, and Indonesian market integration including BEI stocks, mutual funds, and government bonds.",
@@ -103,7 +122,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 5,
+    id: 6,
     title: "KATUMBA PAUD - Child Growth Monitoring System",
     description:
       "An integrated platform for monitoring and recording child growth development at Early Childhood Education (PAUD) institutions in Bukittinggi City. Features digital growth card generation (KATUMBA), WHO-standard nutrition status tracking, data visualization with growth charts, multi-role authentication for schools and education department, and comprehensive reporting system with PDF export capabilities.",
@@ -129,7 +148,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 6,
+    id: 7,
     title: "Hostpro - Online Learning & Professional Services Platform",
     description:
       "Comprehensive online learning and professional development platform featuring high-quality courses, mentor system, event booking services (MC/EO), real-time encrypted chat, payment gateway integration with Midtrans, and multi-role authentication system. Includes admin dashboard with analytics, live monitoring, and complete booking management built with modern full-stack architecture.",
@@ -170,7 +189,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 7,
+    id: 8,
     title: "Nagari Guguak Malalo - Regional Digital Portal",
     description:
       "Comprehensive digital public service portal for Nagari Guguak Malalo, West Sumatra. Features government services, UMKM platform, tourism promotion, and citizen portal with real-time notifications, document management, and multi-role authentication system built with modern full-stack architecture.",
@@ -199,7 +218,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 8,
+    id: 9,
     title: "TokoTech - E-Commerce Platform",
     description:
       "A comprehensive full-stack e-commerce platform for technology products, featuring secure payment processing via Midtrans, admin dashboard with real-time analytics, inventory management, and modern shopping experience built with Next.js 14 and Express.js.",
@@ -222,7 +241,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 9,
+    id: 10,
     title: "Indonesia Disaster Monitoring System",
     description:
       "An interactive web application that provides real-time information about natural disasters in Indonesia, utilizing React, Leaflet.js, and AWS for scalable cloud deployment.",
@@ -234,7 +253,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: 10,
+    id: 11,
     title: "Hospital Management System",
     description:
       "A comprehensive web application for managing hospital operations, appointments, and patient records, developed using the Laravel framework and MySQL database.",
@@ -246,7 +265,7 @@ export const projects = [
     featured: false,
   },
   {
-    id: 11,
+    id: 12,
     title: "Java Social Media Application",
     description:
       "A simple social media application built using Java with a graphical interface (GUI) using JFrame Form. This application integrates AWS DynamoDB as a database to store user data and social media content.",
